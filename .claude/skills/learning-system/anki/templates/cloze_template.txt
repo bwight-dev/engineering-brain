@@ -1,0 +1,9 @@
+#separator:tab
+#html:true
+#notetype:Cloze
+#deck:TOPIC_NAME::SUBTOPIC_NAME
+#tags:topic-tag subtopic-tag
+
+"CONCEPT: A {{c1::key term}} is defined as {{c2::definition}}. It is used for {{c3::purpose}}."	"Additional context or explanation for the back of the card."	topic-tag concept-tag
+"COMPARISON: {{c1::Term A}} differs from {{c2::Term B}} because [explanation]."	"When to use each: Term A for X, Term B for Y."	topic-tag comparison
+"PRINCIPLE: The {{c1::Principle Name}} states that [description]. This matters because {{c2::reason}}."	""	topic-tag principles

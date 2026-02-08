@@ -1,0 +1,164 @@
+{
+  "assessment_date": "2026-02-08T12:00:00Z",
+  "assessment_version": "1.0",
+  "total_score_pct": 43,
+  "results_by_topic": {
+    "cs-fundamentals": {
+      "score": 3,
+      "max_score": 5,
+      "pct": 60,
+      "confidence": "medium",
+      "strengths": ["Understands O(n log n) conceptually", "Knows merge sort"],
+      "gaps": ["Amortized analysis", "Precise Big O reasoning", "Time vs space trade-off examples"],
+      "priority": "medium",
+      "recommended_subtopics": ["big-o-notation", "binary-and-bits", "how-computers-work", "os-basics"]
+    },
+    "javascript-typescript": {
+      "score": 2,
+      "max_score": 5,
+      "pct": 40,
+      "confidence": "low",
+      "strengths": ["Knows scoping is relevant"],
+      "gaps": ["let/const/var specifics", "Block vs function scope", "Closures", "Event loop", "TypeScript type system"],
+      "priority": "high",
+      "recommended_subtopics": ["js-types-coercion", "js-closures-scope", "js-execution-model", "js-promises-async", "ts-type-system"]
+    },
+    "python-fundamentals": {
+      "score": 1,
+      "max_score": 5,
+      "pct": 20,
+      "confidence": "low",
+      "strengths": [],
+      "gaps": ["List vs tuple vs set distinction", "Mutability concepts", "Decorators", "Generators", "GIL"],
+      "priority": "high",
+      "recommended_subtopics": ["python-data-model", "python-iterators-generators", "python-decorators-context", "python-concurrency"]
+    },
+    "data-structures": {
+      "score": 3,
+      "max_score": 5,
+      "pct": 60,
+      "confidence": "medium",
+      "strengths": ["Stack vs queue solid", "Hash map internals with chaining", "Knows worst-case O(n) for hash collisions"],
+      "gaps": ["Tries", "Advanced tree operations", "Graph representations"],
+      "priority": "medium",
+      "recommended_subtopics": ["tries", "trees-bst", "graphs"]
+    },
+    "algorithm-patterns": {
+      "score": 2,
+      "max_score": 5,
+      "pct": 40,
+      "confidence": "low",
+      "strengths": ["Knows two pointers concept at high level"],
+      "gaps": ["Can't apply patterns to problems", "Dynamic programming", "Binary search variations", "Sliding window"],
+      "priority": "high",
+      "recommended_subtopics": ["two-pointers", "sliding-window", "binary-search", "recursion-backtracking", "dynamic-programming"]
+    },
+    "solid-design-patterns": {
+      "score": 5,
+      "max_score": 5,
+      "pct": 100,
+      "confidence": "high",
+      "strengths": ["SRP definition and violation examples", "Strategy pattern with real-world example", "DIP with injection and testing", "Connected principles to testability"],
+      "gaps": [],
+      "priority": "low",
+      "recommended_subtopics": []
+    },
+    "clean-architecture-ddd": {
+      "score": 1,
+      "max_score": 5,
+      "pct": 20,
+      "confidence": "low",
+      "strengths": [],
+      "gaps": ["Bounded contexts", "Dependency rule", "Aggregates", "Entities vs value objects", "Hexagonal architecture"],
+      "priority": "high",
+      "recommended_subtopics": ["clean-architecture", "ddd-strategic", "ddd-tactical", "hexagonal-architecture"]
+    },
+    "system-design": {
+      "score": 4,
+      "max_score": 5,
+      "pct": 80,
+      "confidence": "medium",
+      "strengths": ["CDN understanding with real-world example", "Basic system decomposition", "Practical tooling knowledge (Vercel, Clerk, DynamoDB)"],
+      "gaps": ["Hash/encoding strategies", "Read/write ratio analysis", "Redirect semantics (301 vs 302)", "Capacity estimation"],
+      "priority": "low",
+      "recommended_subtopics": ["sd-fundamentals", "sd-case-studies"]
+    },
+    "react-nextjs": {
+      "score": 1,
+      "max_score": 5,
+      "pct": 20,
+      "confidence": "low",
+      "strengths": [],
+      "gaps": ["State vs props", "Hooks", "Component lifecycle", "Server vs client components", "Next.js data patterns"],
+      "priority": "high",
+      "recommended_subtopics": ["react-fundamentals", "react-hooks-deep", "react-patterns", "nextjs-app-router"]
+    },
+    "sql-mastery": {
+      "score": 2,
+      "max_score": 5,
+      "pct": 40,
+      "confidence": "low",
+      "strengths": ["Knows INNER JOIN concept"],
+      "gaps": ["LEFT JOIN specifics (NULL behavior)", "Window functions", "CTEs", "Normalization", "Query optimization"],
+      "priority": "high",
+      "recommended_subtopics": ["sql-fundamentals", "sql-advanced", "sql-optimization", "sql-design"]
+    },
+    "distributed-systems": {
+      "score": 2,
+      "max_score": 5,
+      "pct": 40,
+      "confidence": "low",
+      "strengths": ["Remembers CAP is pick-2-of-3"],
+      "gaps": ["CAP specifics (C/A/P definitions)", "Saga pattern", "Consensus algorithms", "Event sourcing", "CQRS"],
+      "priority": "medium",
+      "recommended_subtopics": ["dist-fundamentals", "dist-patterns", "dist-messaging"]
+    },
+    "cryptography-networking": {
+      "score": 1,
+      "max_score": 5,
+      "pct": 20,
+      "confidence": "low",
+      "strengths": [],
+      "gaps": ["Symmetric vs asymmetric", "TLS", "OAuth", "HTTP protocols", "Web security"],
+      "priority": "medium",
+      "recommended_subtopics": ["crypto-fundamentals", "networking-protocols", "web-security"]
+    },
+    "math-for-ai": {
+      "score": 1,
+      "max_score": 5,
+      "pct": 20,
+      "confidence": "low",
+      "strengths": [],
+      "gaps": ["Vectors", "Linear algebra", "Gradient descent", "Backpropagation", "Probability"],
+      "priority": "low",
+      "recommended_subtopics": ["linear-algebra", "calculus-optimization", "probability-stats"]
+    }
+  },
+  "overall_strengths": [
+    "SOLID and Design Patterns — staff-level understanding, can explain and apply",
+    "System Design — strong practical instincts, real-world experience with CDNs and tooling",
+    "Data Structures basics — solid on stacks, queues, hash map internals"
+  ],
+  "overall_gaps": [
+    "Language fundamentals (JS/TS and Python) — need to solidify core mechanics",
+    "Algorithm patterns — knows concepts but can't apply them to problems",
+    "React/Next.js — foundational concepts missing despite likely using them",
+    "Clean Architecture/DDD — no recall despite strong SOLID knowledge",
+    "SQL — knows basics but missing intermediate/advanced features",
+    "Crypto/Networking/Math — starting from scratch"
+  ],
+  "recommended_learning_path": [
+    "cs-fundamentals",
+    "javascript-typescript",
+    "python-fundamentals",
+    "data-structures",
+    "algorithm-patterns",
+    "react-nextjs",
+    "sql-mastery",
+    "clean-architecture-ddd",
+    "system-design",
+    "distributed-systems",
+    "cryptography-networking",
+    "math-for-ai"
+  ]
+}

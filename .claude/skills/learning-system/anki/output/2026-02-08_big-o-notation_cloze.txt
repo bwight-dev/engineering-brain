@@ -1,0 +1,61 @@
+#separator:tab
+#html:true
+#notetype:Cloze
+#deck:CS Fundamentals::Big O Notation
+#tags:cs-fundamentals big-o complexity
+
+"Big O notation describes the {{c1::upper bound}} (worst case) of an algorithm's growth rate relative to the {{c2::input size (n)}}."	"It tells you how the runtime SCALES, not how fast it actually runs."	cs-fundamentals big-o
+"Big O Rule #1: {{c1::Drop Constants}}. O(2n) becomes {{c2::O(n)}} because we care about the growth RATE, not the exact count."	"O(500n) is still O(n). The slope is linear regardless of steepness."	big-o rules
+"Big O Rule #2: {{c1::Drop Non-Dominant Terms}}. O(n² + n) becomes {{c2::O(n²)}} because as n grows, the smaller term becomes irrelevant."	"At n=1000: n²=1,000,000 while n=1,000. The n term is noise."	big-o rules
+"Big O Rule #3: {{c1::Different Inputs}} get different variables. Two arrays of length a and b looped separately = {{c2::O(a + b)}}, NOT O(n)."	"Nested loops over two different arrays = O(a * b). Only use O(n²) when both loops are over the SAME input."	big-o rules
+"<b>O(1)</b> — {{c1::Constant}} Time. Runtime does NOT change with input size. Examples: {{c2::array index access}}, hash map lookup, stack push/pop."	"The fastest possible complexity. Does exactly the same work whether n=1 or n=1,000,000."	big-o complexity
+"<b>O(log n)</b> — {{c1::Logarithmic}} Time. The problem is {{c2::cut in half}} at every step. Even 4 billion items only needs ~{{c3::32}} operations."	"Classic example: Binary Search. Every step eliminates half the remaining data."	big-o complexity
+"<pre><code class='language-python'># Binary Search — O(log n)
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low &lt;= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] &lt; target:
+            {{c1::low = mid + 1}}
+        else:
+            {{c2::high = mid - 1}}
+    return -1</code></pre>"	"Time: O(log n). Space: O(1). Array MUST be sorted."	python big-o binary-search syntax
+"<pre><code class='language-typescript'>// Binary Search — O(log n)
+function binarySearch(arr: number[], target: number): number {
+    let low = 0, high = arr.length - 1;
+    while (low &lt;= high) {
+        const mid = Math.floor((low + high) / 2);
+        if (arr[mid] === target) return mid;
+        else if (arr[mid] &lt; target) {{c1::low = mid + 1}};
+        else {{c2::high = mid - 1}};
+    }
+    return -1;
+}</code></pre>"	"Time: O(log n). Space: O(1). Array MUST be sorted."	typescript big-o binary-search syntax
+"<b>O(n)</b> — {{c1::Linear}} Time. Runtime grows in {{c2::direct proportion}} to input. If input doubles, runtime {{c3::doubles}}."	"Examples: linear search, summing an array, any single pass through data."	big-o complexity
+"<b>O(n log n)</b> — {{c1::Log-Linear}} Time. This is the theoretical {{c2::best possible}} time for comparison-based sorting."	"Examples: Merge Sort, Heap Sort, Quick Sort (average). Python's built-in sort() uses Timsort which is O(n log n)."	big-o complexity sorting
+"<b>O(n²)</b> — {{c1::Quadratic}} Time. Usually caused by {{c2::nested loops}} over the same data. If input doubles, runtime {{c3::quadruples}}."	"Examples: Bubble Sort, Insertion Sort, brute-force pair checking. Often a sign you need a better approach."	big-o complexity
+"<pre><code class='language-python'># O(n²) — Nested loops over same data
+def print_pairs(items):
+    for i in items:        # outer: n times
+        for j in items:    # inner: n times
+            print(i, j)    # total: {{c1::n * n}} = {{c2::O(n²)}}</code></pre>"	"If n=1000, this runs 1,000,000 times. Classic brute-force pattern."	python big-o quadratic syntax
+"<b>O(2ⁿ)</b> — {{c1::Exponential}} Time. Operations {{c2::double}} with each additional input. Only viable for very small n."	"Classic example: recursive Fibonacci without memoization. Fix it with memoization to get O(n)."	big-o complexity
+"<pre><code class='language-python'># O(2ⁿ) — Exponential (BAD)
+def fib(n):
+    if n &lt;= 1: return n
+    return fib({{c1::n - 1}}) + fib({{c2::n - 2}})
+
+# Fix with memoization — O(n) (GOOD)
+def fib_memo(n, memo={{c3::{}}}):
+    if n in memo: return memo[n]
+    if n &lt;= 1: return n
+    memo[n] = fib_memo(n-1, memo) + fib_memo(n-2, memo)
+    return memo[n]</code></pre>"	"Without memo: O(2ⁿ). With memo: O(n) time, O(n) space. Classic time-space trade-off."	python big-o exponential memoization syntax
+"<b>O(n!)</b> — {{c1::Factorial}} Time. Grows astronomically fast. Only for tiny inputs (n &lt; ~12)."	"Examples: generating all permutations, brute-force Traveling Salesman. 10! = 3,628,800. 20! = 2.4 quintillion."	big-o complexity
+"To analyze a {{c1::recursive}} algorithm's time complexity, use the formula: O({{c2::branches}}^{{c3::depth}}), where branches = recursive calls per function, depth = height of call tree."	"Fibonacci: 2 branches, depth n → O(2ⁿ). Factorial: 1 branch, depth n → O(n)."	big-o recursion
+"{{c1::Amortized}} analysis: an operation that is USUALLY fast but OCCASIONALLY slow has a low {{c2::average cost per operation}} over a sequence."	"Example: dynamic array append. Mostly O(1), but when full it doubles capacity and copies everything (O(n)). Amortized: still O(1)."	big-o amortized
+"{{c1::Space complexity}} measures total memory used relative to input. It includes {{c2::auxiliary space}} (extra data structures) AND {{c3::stack space}} (recursive call frames)."	"Merge sort: O(n) space for the temp arrays. Recursive DFS: O(n) stack space for call frames."	big-o space-complexity
+"Classic time-space trade-off: use a {{c1::hash set/map}} to trade {{c2::O(n) space}} for {{c3::O(1) lookup time}} instead of scanning an array in O(n) time."	"'Have I seen this before?' → Store in a set. Two Sum: instead of O(n²) brute force, use a hash map for O(n)."	big-o trade-off interview-prep
+"Quick Reference — match the pattern to the complexity:<br>Single loop = {{c1::O(n)}}<br>Nested loop (same data) = {{c2::O(n²)}}<br>Input halved each step = {{c3::O(log n)}}<br>Sorted data required = probably involves O(n log n) or O(log n)"	"When you see a problem, identify the pattern first. The complexity follows from the structure."	big-o interview-prep

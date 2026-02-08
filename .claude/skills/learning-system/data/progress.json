@@ -1,0 +1,124 @@
+{
+  "version": "1.0",
+  "student": "Brad",
+  "target_level": "Staff/Google",
+  "started_at": "2026-02-08T12:00:00Z",
+  "last_session": "2026-02-08T13:30:00Z",
+  "total_sessions": 4,
+  "total_cards_generated": 60,
+  "diagnostic_completed": true,
+  "current_focus": {
+    "topic_id": "cs-fundamentals",
+    "subtopic_id": "binary-and-bits",
+    "reason": "Interleaving — back to CS fundamentals next, then Python or more JS/TS"
+  },
+  "topic_progress": {
+    "cs-fundamentals": {
+      "status": "in_progress",
+      "started_at": "2026-02-08T12:30:00Z",
+      "subtopics": {
+        "big-o-notation": {
+          "status": "cards_generated",
+          "diagnostic_score": 3,
+          "cards_generated": 20,
+          "card_file": "anki/output/2026-02-08_big-o-notation_cloze.txt",
+          "practice_completed": false,
+          "mastery_self_rating": null,
+          "notes": "20 cards covering all complexity classes O(1) through O(n!), analysis rules, recursion formula, amortized analysis, space complexity, time-space trade-offs."
+        }
+      }
+    },
+    "javascript-typescript": {
+      "status": "in_progress",
+      "started_at": "2026-02-08T13:00:00Z",
+      "subtopics": {
+        "js-closures-scope": {
+          "status": "cards_generated",
+          "diagnostic_score": 2,
+          "cards_generated": 20,
+          "card_file": "anki/output/2026-02-08_js-closures-scope_cloze.txt",
+          "practice_completed": false,
+          "mastery_self_rating": null,
+          "notes": "20 cards covering let/const/var, lexical scope, scope chain, closures (definition, reference vs snapshot, loop problem), hoisting, TDZ, all 5 this binding rules, factory functions, partial application. Both TS and Python code cards."
+        }
+      }
+    },
+    "react-nextjs": {
+      "status": "in_progress",
+      "started_at": "2026-02-08T13:30:00Z",
+      "subtopics": {
+        "react-fundamentals": {
+          "status": "cards_generated",
+          "diagnostic_score": 1,
+          "cards_generated": 20,
+          "card_file": "anki/output/2026-02-08_react-fundamentals_cloze.txt",
+          "practice_completed": false,
+          "mastery_self_rating": null,
+          "notes": "20 cards covering Virtual DOM, reconciliation, components, JSX, props (destructuring, children), state (useState, async updates, functional updates, derived values), re-rendering triggers, React.memo, unidirectional data flow, keys in lists, state mutation rules."
+        }
+      }
+    }
+  },
+  "diagnostic_results": {
+    "taken_at": "2026-02-08T12:00:00Z",
+    "scores": {
+      "cs-fundamentals": 3,
+      "javascript-typescript": 2,
+      "python-fundamentals": 1,
+      "data-structures": 3,
+      "algorithm-patterns": 2,
+      "solid-design-patterns": 5,
+      "clean-architecture-ddd": 1,
+      "system-design": 4,
+      "react-nextjs": 1,
+      "sql-mastery": 2,
+      "distributed-systems": 2,
+      "cryptography-networking": 1,
+      "math-for-ai": 1
+    }
+  },
+  "session_history": [
+    {
+      "id": "session-001",
+      "date": "2026-02-08T12:00:00Z",
+      "type": "diagnostic",
+      "notes": "Initial diagnostic completed. Overall 43%. Strong on SOLID/patterns and system design. Weak on language fundamentals, React, DDD, crypto, math."
+    },
+    {
+      "id": "session-002",
+      "date": "2026-02-08T12:30:00Z",
+      "type": "card_generation",
+      "topic_id": "cs-fundamentals",
+      "subtopic_id": "big-o-notation",
+      "cards_generated": 20,
+      "card_file": "anki/output/2026-02-08_big-o-notation_cloze.txt",
+      "notebooklm_queries": 1,
+      "practice_session": false,
+      "notes": "First card set. All complexity classes, analysis rules, amortized analysis, space complexity."
+    },
+    {
+      "id": "session-003",
+      "date": "2026-02-08T13:00:00Z",
+      "type": "card_generation",
+      "topic_id": "javascript-typescript",
+      "subtopic_id": "js-closures-scope",
+      "cards_generated": 20,
+      "card_file": "anki/output/2026-02-08_js-closures-scope_cloze.txt",
+      "notebooklm_queries": 1,
+      "practice_session": false,
+      "notes": "Covered let/const/var (diagnostic gap), lexical scope, closures, hoisting, TDZ, this binding rules, factory functions, currying. Added memory tricks for call/apply/bind."
+    },
+    {
+      "id": "session-004",
+      "date": "2026-02-08T13:30:00Z",
+      "type": "card_generation",
+      "topic_id": "react-nextjs",
+      "subtopic_id": "react-fundamentals",
+      "cards_generated": 20,
+      "card_file": "anki/output/2026-02-08_react-fundamentals_cloze.txt",
+      "notebooklm_queries": 1,
+      "practice_session": false,
+      "notes": "React core concepts. Virtual DOM, reconciliation, JSX, props, state, useState, functional updates, batching, derived values, re-rendering, React.memo, data flow, keys, mutation rules. Brad scored 1/5 on diagnostic — this is a priority gap despite daily React usage."
+    }
+  ]
+}

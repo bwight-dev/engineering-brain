@@ -1,0 +1,38 @@
+{
+  "notebooks": {
+    "software-engineering-mastery-library": {
+      "id": "software-engineering-mastery-library",
+      "url": "https://notebooklm.google.com/notebook/42613e3f-9254-46ba-b36e-f81e887a4593",
+      "name": "Software Engineering Mastery Library",
+      "description": "Comprehensive software engineering resource covering algorithms, data structures, coding interviews, system design, distributed systems, DDD, clean architecture, design patterns, React/Next.js, JavaScript/TypeScript, CS foundations, cryptography, math for AI, SQL, data science, and career/soft skills.",
+      "topics": [
+        "algorithms",
+        "data-structures",
+        "coding-interviews",
+        "system-design",
+        "distributed-systems",
+        "DDD",
+        "clean-architecture",
+        "design-patterns",
+        "React",
+        "Next.js",
+        "JavaScript",
+        "TypeScript",
+        "SQL",
+        "cryptography",
+        "math-for-AI",
+        "career-skills",
+        "Python"
+      ],
+      "content_types": [],
+      "use_cases": [],
+      "tags": [],
+      "created_at": "2026-02-08T11:19:12.305574",
+      "updated_at": "2026-02-08T11:19:12.305597",
+      "use_count": 0,
+      "last_used": null
+    }
+  },
+  "active_notebook_id": "software-engineering-mastery-library",
+  "updated_at": "2026-02-08T11:19:12.305600"
+}

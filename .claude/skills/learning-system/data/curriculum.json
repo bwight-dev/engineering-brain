@@ -1,0 +1,613 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-02-08T00:00:00Z",
+  "levels": {
+    "1": "Foundations",
+    "2": "Core",
+    "3": "Intermediate",
+    "4": "Advanced",
+    "5": "Expert/Staff-Level"
+  },
+  "topics": [
+    {
+      "id": "cs-fundamentals",
+      "name": "CS Fundamentals",
+      "level": 1,
+      "prerequisites": [],
+      "notebooklm_query_prefix": "CS foundations",
+      "subtopics": [
+        {
+          "id": "big-o-notation",
+          "name": "Big O Notation",
+          "description": "Time and space complexity analysis, common complexities, amortized analysis",
+          "estimated_cards": 20,
+          "tags": ["complexity", "big-o", "cs-fundamentals"]
+        },
+        {
+          "id": "binary-and-bits",
+          "name": "Binary, Bits, and Number Systems",
+          "description": "Binary representation, bitwise operations, hex, two's complement",
+          "estimated_cards": 15,
+          "tags": ["binary", "bits", "number-systems"]
+        },
+        {
+          "id": "how-computers-work",
+          "name": "How Computers Work",
+          "description": "CPU, memory hierarchy, storage, instruction cycle, Von Neumann architecture",
+          "estimated_cards": 15,
+          "tags": ["hardware", "cpu", "memory"]
+        },
+        {
+          "id": "os-basics",
+          "name": "Operating System Basics",
+          "description": "Processes, threads, memory management, scheduling, virtual memory",
+          "estimated_cards": 20,
+          "tags": ["os", "processes", "threads"]
+        },
+        {
+          "id": "boolean-logic",
+          "name": "Boolean Algebra and Logic Gates",
+          "description": "AND, OR, NOT, XOR, truth tables, logic circuit basics",
+          "estimated_cards": 10,
+          "tags": ["boolean", "logic", "cs-fundamentals"]
+        }
+      ]
+    },
+    {
+      "id": "javascript-typescript",
+      "name": "JavaScript / TypeScript Fundamentals",
+      "level": 1,
+      "prerequisites": ["cs-fundamentals"],
+      "notebooklm_query_prefix": "JavaScript TypeScript",
+      "subtopics": [
+        {
+          "id": "js-execution-model",
+          "name": "JS Execution Model",
+          "description": "Event loop, call stack, task queue, microtasks, single-threaded model",
+          "estimated_cards": 20,
+          "tags": ["javascript", "event-loop", "async"]
+        },
+        {
+          "id": "js-types-coercion",
+          "name": "Types and Coercion",
+          "description": "Primitives, objects, type coercion rules, typeof, equality",
+          "estimated_cards": 15,
+          "tags": ["javascript", "types"]
+        },
+        {
+          "id": "js-closures-scope",
+          "name": "Closures and Scope",
+          "description": "Lexical scope, closures, hoisting, this binding, arrow functions",
+          "estimated_cards": 15,
+          "tags": ["javascript", "closures", "scope"]
+        },
+        {
+          "id": "js-prototypes-classes",
+          "name": "Prototypes and Classes",
+          "description": "Prototype chain, ES6 classes, inheritance, mixins",
+          "estimated_cards": 15,
+          "tags": ["javascript", "prototypes", "oop"]
+        },
+        {
+          "id": "js-promises-async",
+          "name": "Promises and Async/Await",
+          "description": "Promise API, async/await, error handling, Promise.all/race/allSettled",
+          "estimated_cards": 15,
+          "tags": ["javascript", "promises", "async"]
+        },
+        {
+          "id": "ts-type-system",
+          "name": "TypeScript Type System",
+          "description": "Generics, utility types, conditional types, mapped types, type narrowing",
+          "estimated_cards": 25,
+          "tags": ["typescript", "types", "generics"]
+        },
+        {
+          "id": "ts-advanced",
+          "name": "Advanced TypeScript",
+          "description": "Discriminated unions, template literal types, type guards, declaration merging",
+          "estimated_cards": 20,
+          "tags": ["typescript", "advanced"]
+        }
+      ]
+    },
+    {
+      "id": "python-fundamentals",
+      "name": "Python Fundamentals",
+      "level": 1,
+      "prerequisites": ["cs-fundamentals"],
+      "notebooklm_query_prefix": "Python",
+      "subtopics": [
+        {
+          "id": "python-data-model",
+          "name": "Python Data Model",
+          "description": "Dunder methods, descriptors, protocols, everything is an object",
+          "estimated_cards": 20,
+          "tags": ["python", "data-model"]
+        },
+        {
+          "id": "python-iterators-generators",
+          "name": "Iterators and Generators",
+          "description": "Iterator protocol, generator functions, yield, generator expressions, itertools",
+          "estimated_cards": 15,
+          "tags": ["python", "iterators", "generators"]
+        },
+        {
+          "id": "python-decorators-context",
+          "name": "Decorators and Context Managers",
+          "description": "Function/class decorators, @wraps, with statement, contextlib",
+          "estimated_cards": 15,
+          "tags": ["python", "decorators"]
+        },
+        {
+          "id": "python-concurrency",
+          "name": "Python Concurrency",
+          "description": "Threading, asyncio, multiprocessing, GIL, concurrent.futures",
+          "estimated_cards": 20,
+          "tags": ["python", "async", "concurrency"]
+        }
+      ]
+    },
+    {
+      "id": "data-structures",
+      "name": "Data Structures",
+      "level": 2,
+      "prerequisites": ["cs-fundamentals", "python-fundamentals", "javascript-typescript"],
+      "notebooklm_query_prefix": "data structures",
+      "subtopics": [
+        {
+          "id": "arrays-strings",
+          "name": "Arrays and Strings",
+          "description": "Array operations, string manipulation, in-place algorithms",
+          "estimated_cards": 20,
+          "tags": ["arrays", "strings", "data-structures"]
+        },
+        {
+          "id": "linked-lists",
+          "name": "Linked Lists",
+          "description": "Singly, doubly, circular linked lists, sentinel nodes",
+          "estimated_cards": 15,
+          "tags": ["linked-lists", "data-structures"]
+        },
+        {
+          "id": "stacks-queues",
+          "name": "Stacks and Queues",
+          "description": "Stack/queue implementations, monotonic stacks, deque",
+          "estimated_cards": 15,
+          "tags": ["stacks", "queues", "data-structures"]
+        },
+        {
+          "id": "hash-maps",
+          "name": "Hash Maps and Sets",
+          "description": "Hashing, collision resolution, hash map patterns, frequency counting",
+          "estimated_cards": 15,
+          "tags": ["hash-maps", "data-structures"]
+        },
+        {
+          "id": "trees-bst",
+          "name": "Trees and BSTs",
+          "description": "Binary trees, BST operations, traversals (inorder, preorder, postorder, level-order)",
+          "estimated_cards": 25,
+          "tags": ["trees", "bst", "data-structures"]
+        },
+        {
+          "id": "heaps-priority-queues",
+          "name": "Heaps and Priority Queues",
+          "description": "Min/max heaps, heap operations, heapify, priority queue usage",
+          "estimated_cards": 15,
+          "tags": ["heaps", "priority-queues", "data-structures"]
+        },
+        {
+          "id": "graphs",
+          "name": "Graphs",
+          "description": "Representations (adjacency list/matrix), BFS, DFS, directed/undirected, cycles",
+          "estimated_cards": 25,
+          "tags": ["graphs", "bfs", "dfs", "data-structures"]
+        },
+        {
+          "id": "tries",
+          "name": "Tries",
+          "description": "Prefix trees, autocomplete, word search, implementation",
+          "estimated_cards": 10,
+          "tags": ["tries", "data-structures"]
+        }
+      ]
+    },
+    {
+      "id": "algorithm-patterns",
+      "name": "Algorithm Interview Patterns",
+      "level": 2,
+      "prerequisites": ["data-structures"],
+      "notebooklm_query_prefix": "algorithms coding interviews",
+      "subtopics": [
+        {
+          "id": "two-pointers",
+          "name": "Two Pointers",
+          "description": "Slow/fast, left/right, opposite direction patterns",
+          "estimated_cards": 15,
+          "tags": ["two-pointers", "algorithms", "interview-prep"]
+        },
+        {
+          "id": "sliding-window",
+          "name": "Sliding Window",
+          "description": "Fixed and variable size windows, shrink/expand pattern",
+          "estimated_cards": 15,
+          "tags": ["sliding-window", "algorithms", "interview-prep"]
+        },
+        {
+          "id": "binary-search",
+          "name": "Binary Search",
+          "description": "Standard, modified, search space reduction, bisect library",
+          "estimated_cards": 15,
+          "tags": ["binary-search", "algorithms", "interview-prep"]
+        },
+        {
+          "id": "recursion-backtracking",
+          "name": "Recursion and Backtracking",
+          "description": "Subsets, permutations, combinations, N-queens, constraint satisfaction",
+          "estimated_cards": 20,
+          "tags": ["recursion", "backtracking", "algorithms", "interview-prep"]
+        },
+        {
+          "id": "dynamic-programming",
+          "name": "Dynamic Programming",
+          "description": "Memoization, tabulation, 1D/2D DP, knapsack, LCS, LIS, coin change",
+          "estimated_cards": 30,
+          "tags": ["dynamic-programming", "algorithms", "interview-prep"]
+        },
+        {
+          "id": "greedy",
+          "name": "Greedy Algorithms",
+          "description": "Interval scheduling, Huffman coding, activity selection, greedy proofs",
+          "estimated_cards": 15,
+          "tags": ["greedy", "algorithms", "interview-prep"]
+        },
+        {
+          "id": "sorting-searching",
+          "name": "Sorting and Searching",
+          "description": "Merge sort, quick sort, counting sort, radix sort, comparisons",
+          "estimated_cards": 20,
+          "tags": ["sorting", "searching", "algorithms", "interview-prep"]
+        },
+        {
+          "id": "graph-algorithms",
+          "name": "Graph Algorithms",
+          "description": "Dijkstra, Bellman-Ford, topological sort, union-find, MST (Kruskal/Prim)",
+          "estimated_cards": 25,
+          "tags": ["graph-algorithms", "algorithms", "interview-prep"]
+        }
+      ]
+    },
+    {
+      "id": "solid-design-patterns",
+      "name": "SOLID Principles and Design Patterns",
+      "level": 3,
+      "prerequisites": ["javascript-typescript", "python-fundamentals"],
+      "notebooklm_query_prefix": "SOLID design patterns",
+      "subtopics": [
+        {
+          "id": "solid-principles",
+          "name": "SOLID Principles",
+          "description": "SRP, OCP, LSP, ISP, DIP with real-world examples in Python and TypeScript",
+          "estimated_cards": 25,
+          "tags": ["solid", "design-principles"]
+        },
+        {
+          "id": "creational-patterns",
+          "name": "Creational Patterns",
+          "description": "Factory, Abstract Factory, Builder, Singleton, Prototype",
+          "estimated_cards": 20,
+          "tags": ["design-patterns", "creational"]
+        },
+        {
+          "id": "structural-patterns",
+          "name": "Structural Patterns",
+          "description": "Adapter, Decorator, Facade, Proxy, Composite, Bridge",
+          "estimated_cards": 20,
+          "tags": ["design-patterns", "structural"]
+        },
+        {
+          "id": "behavioral-patterns",
+          "name": "Behavioral Patterns",
+          "description": "Observer, Strategy, Command, State, Iterator, Template Method, Chain of Responsibility",
+          "estimated_cards": 20,
+          "tags": ["design-patterns", "behavioral"]
+        }
+      ]
+    },
+    {
+      "id": "clean-architecture-ddd",
+      "name": "Clean Architecture and DDD",
+      "level": 3,
+      "prerequisites": ["solid-design-patterns"],
+      "notebooklm_query_prefix": "clean architecture DDD domain-driven design",
+      "subtopics": [
+        {
+          "id": "clean-architecture",
+          "name": "Clean Architecture",
+          "description": "Dependency rule, layers, boundaries, use cases, ports and adapters",
+          "estimated_cards": 20,
+          "tags": ["clean-architecture", "architecture"]
+        },
+        {
+          "id": "ddd-strategic",
+          "name": "DDD Strategic Design",
+          "description": "Bounded contexts, ubiquitous language, context maps, subdomains",
+          "estimated_cards": 20,
+          "tags": ["ddd", "strategic-design"]
+        },
+        {
+          "id": "ddd-tactical",
+          "name": "DDD Tactical Design",
+          "description": "Entities, value objects, aggregates, repositories, domain events, services",
+          "estimated_cards": 25,
+          "tags": ["ddd", "tactical-design"]
+        },
+        {
+          "id": "hexagonal-architecture",
+          "name": "Hexagonal / Ports and Adapters",
+          "description": "Ports, adapters, dependency inversion in practice, testing boundaries",
+          "estimated_cards": 15,
+          "tags": ["hexagonal", "architecture"]
+        }
+      ]
+    },
+    {
+      "id": "system-design",
+      "name": "System Design",
+      "level": 4,
+      "prerequisites": ["clean-architecture-ddd", "data-structures"],
+      "notebooklm_query_prefix": "system design",
+      "subtopics": [
+        {
+          "id": "sd-fundamentals",
+          "name": "System Design Fundamentals",
+          "description": "Scalability, availability, consistency, partitioning, CAP theorem, PACELC",
+          "estimated_cards": 25,
+          "tags": ["system-design", "fundamentals"]
+        },
+        {
+          "id": "sd-components",
+          "name": "System Components",
+          "description": "Load balancers, caches (Redis, Memcached), CDNs, message queues, reverse proxies",
+          "estimated_cards": 25,
+          "tags": ["system-design", "components"]
+        },
+        {
+          "id": "sd-databases",
+          "name": "Database Design at Scale",
+          "description": "SQL vs NoSQL, sharding, replication, consistent hashing, data partitioning",
+          "estimated_cards": 20,
+          "tags": ["system-design", "databases"]
+        },
+        {
+          "id": "sd-case-studies",
+          "name": "Case Studies",
+          "description": "Design YouTube, Twitter/X, Google Drive, URL shortener, chat system, rate limiter",
+          "estimated_cards": 30,
+          "tags": ["system-design", "case-studies", "interview-prep"]
+        },
+        {
+          "id": "sd-api-design",
+          "name": "API Design",
+          "description": "REST vs GraphQL vs gRPC, versioning, pagination, rate limiting, idempotency",
+          "estimated_cards": 20,
+          "tags": ["system-design", "api-design"]
+        }
+      ]
+    },
+    {
+      "id": "react-nextjs",
+      "name": "React, Next.js, and Vercel",
+      "level": 3,
+      "prerequisites": ["javascript-typescript"],
+      "notebooklm_query_prefix": "React Next.js",
+      "subtopics": [
+        {
+          "id": "react-fundamentals",
+          "name": "React Core Concepts",
+          "description": "Components, JSX, props, state, effects, reconciliation, virtual DOM, fiber",
+          "estimated_cards": 25,
+          "tags": ["react", "hooks", "state"]
+        },
+        {
+          "id": "react-hooks-deep",
+          "name": "React Hooks Deep Dive",
+          "description": "useState, useEffect, useRef, useCallback, useMemo, useReducer, custom hooks",
+          "estimated_cards": 20,
+          "tags": ["react", "hooks"]
+        },
+        {
+          "id": "react-patterns",
+          "name": "React Patterns",
+          "description": "Composition, render props, HOCs, compound components, controlled vs uncontrolled",
+          "estimated_cards": 20,
+          "tags": ["react", "patterns"]
+        },
+        {
+          "id": "react-performance",
+          "name": "React Performance",
+          "description": "Memoization, virtualization, code splitting, React.lazy, Suspense, profiling",
+          "estimated_cards": 15,
+          "tags": ["react", "performance"]
+        },
+        {
+          "id": "react-state-management",
+          "name": "State Management",
+          "description": "Context API, Zustand, Redux patterns, server state (TanStack Query)",
+          "estimated_cards": 20,
+          "tags": ["react", "state-management"]
+        },
+        {
+          "id": "nextjs-app-router",
+          "name": "Next.js App Router",
+          "description": "Server components, client components, streaming, layouts, routing, middleware",
+          "estimated_cards": 25,
+          "tags": ["nextjs", "app-router"]
+        },
+        {
+          "id": "nextjs-data-patterns",
+          "name": "Next.js Data Patterns",
+          "description": "Server actions, data fetching, ISR, SSG, SSR, caching strategies",
+          "estimated_cards": 20,
+          "tags": ["nextjs", "data-fetching"]
+        },
+        {
+          "id": "vercel-deployment",
+          "name": "Vercel and Deployment",
+          "description": "Vercel platform, edge functions, serverless, environment variables, CI/CD, preview deployments",
+          "estimated_cards": 15,
+          "tags": ["vercel", "deployment", "devops"]
+        }
+      ]
+    },
+    {
+      "id": "sql-mastery",
+      "name": "SQL Mastery",
+      "level": 3,
+      "prerequisites": ["cs-fundamentals"],
+      "notebooklm_query_prefix": "SQL databases",
+      "subtopics": [
+        {
+          "id": "sql-fundamentals",
+          "name": "SQL Fundamentals",
+          "description": "SELECT, JOIN types, GROUP BY, HAVING, subqueries, UNION",
+          "estimated_cards": 20,
+          "tags": ["sql", "fundamentals"]
+        },
+        {
+          "id": "sql-advanced",
+          "name": "Advanced SQL",
+          "description": "Window functions, CTEs, recursive queries, LATERAL joins, EXPLAIN",
+          "estimated_cards": 20,
+          "tags": ["sql", "advanced"]
+        },
+        {
+          "id": "sql-optimization",
+          "name": "Query Optimization",
+          "description": "Indexes (B-tree, hash, GIN, GiST), EXPLAIN plans, query planner, N+1 problems",
+          "estimated_cards": 20,
+          "tags": ["sql", "optimization"]
+        },
+        {
+          "id": "sql-design",
+          "name": "Database Design",
+          "description": "Normalization (1NF-5NF), denormalization, migrations, transactions, isolation levels, ACID",
+          "estimated_cards": 20,
+          "tags": ["sql", "database-design"]
+        }
+      ]
+    },
+    {
+      "id": "distributed-systems",
+      "name": "Distributed Systems",
+      "level": 4,
+      "prerequisites": ["system-design"],
+      "notebooklm_query_prefix": "distributed systems",
+      "subtopics": [
+        {
+          "id": "dist-fundamentals",
+          "name": "Distributed Systems Fundamentals",
+          "description": "Consensus (Raft, Paxos), replication, partitioning, vector clocks, Lamport timestamps",
+          "estimated_cards": 25,
+          "tags": ["distributed", "consensus"]
+        },
+        {
+          "id": "dist-patterns",
+          "name": "Distributed Patterns",
+          "description": "Saga pattern, CQRS, event sourcing, circuit breaker, bulkhead, sidecar",
+          "estimated_cards": 20,
+          "tags": ["distributed", "patterns"]
+        },
+        {
+          "id": "dist-messaging",
+          "name": "Messaging and Streaming",
+          "description": "Kafka, RabbitMQ, event-driven architecture, exactly-once delivery, pub/sub",
+          "estimated_cards": 15,
+          "tags": ["distributed", "messaging"]
+        },
+        {
+          "id": "dist-observability",
+          "name": "Observability",
+          "description": "Logging, metrics, tracing, SLIs/SLOs/SLAs, monitoring strategies",
+          "estimated_cards": 15,
+          "tags": ["distributed", "observability", "devops"]
+        }
+      ]
+    },
+    {
+      "id": "cryptography-networking",
+      "name": "Cryptography and Networking",
+      "level": 4,
+      "prerequisites": ["cs-fundamentals"],
+      "notebooklm_query_prefix": "cryptography networking",
+      "subtopics": [
+        {
+          "id": "crypto-fundamentals",
+          "name": "Cryptography Fundamentals",
+          "description": "Symmetric (AES) vs asymmetric (RSA), hashing (SHA), digital signatures",
+          "estimated_cards": 20,
+          "tags": ["cryptography", "encryption"]
+        },
+        {
+          "id": "tls-certificates",
+          "name": "TLS and Certificates",
+          "description": "TLS 1.3 handshake, certificate chains, PKI, Let's Encrypt",
+          "estimated_cards": 15,
+          "tags": ["tls", "certificates"]
+        },
+        {
+          "id": "networking-protocols",
+          "name": "Networking Protocols",
+          "description": "OSI model, TCP/IP, HTTP/1.1 vs HTTP/2 vs HTTP/3, DNS resolution, WebSockets",
+          "estimated_cards": 20,
+          "tags": ["networking", "protocols"]
+        },
+        {
+          "id": "web-security",
+          "name": "Web Security",
+          "description": "OWASP top 10, XSS, CSRF, SQL injection, CORS, CSP, OAuth 2.0, JWT, OIDC",
+          "estimated_cards": 20,
+          "tags": ["security", "web"]
+        }
+      ]
+    },
+    {
+      "id": "math-for-ai",
+      "name": "Math for AI",
+      "level": 5,
+      "prerequisites": ["cs-fundamentals", "python-fundamentals"],
+      "notebooklm_query_prefix": "math for AI machine learning",
+      "subtopics": [
+        {
+          "id": "linear-algebra",
+          "name": "Linear Algebra",
+          "description": "Vectors, matrices, matrix operations, eigenvalues/eigenvectors, SVD",
+          "estimated_cards": 25,
+          "tags": ["math", "linear-algebra"]
+        },
+        {
+          "id": "calculus-optimization",
+          "name": "Calculus and Optimization",
+          "description": "Derivatives, gradients, chain rule, gradient descent, convexity, learning rate",
+          "estimated_cards": 20,
+          "tags": ["math", "calculus"]
+        },
+        {
+          "id": "probability-stats",
+          "name": "Probability and Statistics",
+          "description": "Distributions, Bayes theorem, hypothesis testing, confidence intervals",
+          "estimated_cards": 25,
+          "tags": ["math", "probability", "statistics"]
+        },
+        {
+          "id": "ml-fundamentals",
+          "name": "ML Fundamentals",
+          "description": "Regression, classification, neural networks, loss functions, backpropagation, transformers overview",
+          "estimated_cards": 20,
+          "tags": ["ml", "fundamentals"]
+        }
+      ]
+    }
+  ]
+}

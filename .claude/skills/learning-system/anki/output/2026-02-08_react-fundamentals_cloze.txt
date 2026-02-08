@@ -1,0 +1,88 @@
+#separator:tab
+#html:true
+#notetype:Cloze
+#deck:React NextJS Vercel::React Core Concepts
+#tags:react fundamentals hooks state
+
+"React is a {{c1::JavaScript library}} for building UIs using a {{c2::component-based}} architecture. It is {{c3::declarative}} — you describe WHAT the UI should look like, and React handles HOW to update the DOM."	"React is a library, not a framework. It handles the view layer only."	react fundamentals
+"The {{c1::Virtual DOM}} is a lightweight in-memory representation of the real DOM. When state changes, React updates the virtual copy first, then uses {{c2::reconciliation}} (diffing) to calculate the {{c3::minimal set of changes}} needed to update the real DOM."	"This is why React is fast — it avoids expensive full DOM rewrites by only touching what actually changed."	react virtual-dom reconciliation
+"{{c1::Reconciliation}} is React's diffing algorithm. It compares the new Virtual DOM tree with the previous one and determines what changed. Two key rules:<br>1. Different element types → {{c2::tear down and rebuild}}<br>2. Same type → {{c3::update only changed attributes}}"	"This is why keys matter in lists — they help React identify which items moved, were added, or removed."	react reconciliation
+"In modern React, use {{c1::function components}} (not class components). Function components are plain functions that return {{c2::JSX}} and use {{c3::Hooks}} for state and lifecycle."	"Class components still work but are considered legacy. All new React code should use function components."	react components
+"{{c1::JSX}} looks like HTML but compiles to {{c2::React.createElement()}} calls via Babel/Vite. You embed JavaScript expressions using {{c3::curly braces {}}}."	"JSX is syntactic sugar. <div className='box'>Hi</div> becomes React.createElement('div', {className: 'box'}, 'Hi')."	react jsx
+"React requires a single root element. Use {{c1::Fragments}} (<>...</> or &lt;React.Fragment&gt;) to group elements without adding an extra {{c2::DOM node}}."	"Fragments avoid 'div soup' — unnecessary wrapper divs that clutter the DOM and can break CSS layouts."	react jsx fragments
+"{{c1::Props}} are data passed {{c2::down}} from parent to child. They are {{c3::read-only (immutable)}} — a child can NEVER modify its own props."	"Props are like function arguments. The parent controls them, the child just receives and renders them."	react props
+"<pre><code class='language-typescript'>// Props: destructuring + children prop
+interface ButtonProps {
+    color: string;
+    children: {{c1::React.ReactNode}};
+}
+
+const Button = ({ color, {{c1::children}} }: ButtonProps) =&gt; (
+    &lt;button className={`btn-${color}`}&gt;
+        {{{c1::children}}}
+    &lt;/button&gt;
+);
+
+// Usage: content between tags becomes 'children'
+&lt;Button color=""blue""&gt;{{c2::Click Me}}&lt;/Button&gt;</code></pre>"	"children is a special prop. Anything between the opening and closing tags is passed as children automatically."	react props typescript syntax
+"<b>State</b> is data owned and managed {{c1::inside}} a component that can {{c2::change over time}}.<br><b>Props</b> are data passed {{c3::from parent to child}} that are {{c4::read-only}}.<br><br>State changes trigger {{c5::re-renders}}."	"Interview answer: Props = function arguments (external, immutable). State = local variables that persist across renders (internal, mutable via setter)."	react state props interview-prep
+"<pre><code class='language-typescript'>// useState: declare state in a function component
+import { useState } from 'react';
+
+const Counter = () =&gt; {
+    // Returns [currentValue, setterFunction]
+    const [{{c1::count}}, {{c2::setCount}}] = useState({{c3::0}});
+
+    return (
+        &lt;div&gt;
+            &lt;p&gt;Count: {{{c1::count}}}&lt;/p&gt;
+            &lt;button onClick={() =&gt; {{c2::setCount}}({{c1::count}} + 1)}&gt;
+                Increment
+            &lt;/button&gt;
+        &lt;/div&gt;
+    );
+};</code></pre>"	"useState returns a tuple: [value, setter]. The argument to useState is the INITIAL value (only used on first render)."	react hooks useState typescript syntax
+"State updates in React are {{c1::asynchronous}}. React {{c2::batches}} multiple setState calls into a single re-render for performance."	"This means reading state immediately after setting it gives you the OLD value. Use functional updates when the new state depends on the previous state."	react state async batching
+"<pre><code class='language-typescript'>// WRONG: may use stale state
+const handleTripleClick = () =&gt; {
+    setCount(count + 1); // all three read the SAME 'count'
+    setCount(count + 1); // result: only +1, not +3
+    setCount(count + 1);
+};
+
+// RIGHT: functional update, always uses latest
+const handleTripleClick = () =&gt; {
+    setCount({{c1::prev =&gt; prev + 1}});
+    setCount({{c1::prev =&gt; prev + 1}});  // result: +3
+    setCount({{c1::prev =&gt; prev + 1}});
+};</code></pre>"	"Use prev => prev + 1 whenever new state depends on old state. React queues each update with the latest value."	react state functional-updates typescript syntax
+"Do NOT store {{c1::derived values}} in state. If you can calculate it from existing state or props, compute it {{c2::during render}} instead."	"Example: filteredItems = items.filter(i => i.name.includes(searchTerm)). Just compute it — don't useState for it. Less state = fewer bugs."	react state derived-values
+"A React component re-renders when:<br>1. Its own {{c1::state}} changes (setState called)<br>2. Its {{c2::parent}} re-renders (cascade)<br>3. Its {{c3::context}} value changes"	"Props changing doesn't directly trigger re-render — the PARENT re-rendering (which provides new props) does."	react re-rendering
+"When a parent re-renders, {{c1::ALL}} its children re-render by default, even if their props didn't change. Use {{c2::React.memo()}} to skip re-rendering when props are {{c3::unchanged}}."	"React.memo does a shallow comparison of props. If all props are the same, the child skips rendering. Use it for expensive components."	react re-rendering memo performance
+"<pre><code class='language-typescript'>// React.memo: skip re-render if props unchanged
+const ExpensiveList = {{c1::React.memo}}(({ items }: { items: string[] }) =&gt; {
+    console.log('Rendering list...'); // only logs when items change
+    return (
+        &lt;ul&gt;
+            {items.map(item =&gt; &lt;li key={item}&gt;{item}&lt;/li&gt;)}
+        &lt;/ul&gt;
+    );
+});</code></pre>"	"Wrap with React.memo() when: component renders often, renders are expensive, and props don't change frequently."	react memo performance typescript syntax
+"React enforces {{c1::unidirectional}} (one-way) data flow:<br>• Data flows {{c2::down}} via props<br>• Events flow {{c3::up}} via callback functions"	"Parent passes a handler function as a prop. Child calls it to communicate back up. Data never flows sideways or upward directly."	react data-flow
+"<pre><code class='language-typescript'>// Data down, events up pattern
+const App = () =&gt; {
+    const [query, setQuery] = useState('');
+
+    return (
+        &lt;div&gt;
+            &lt;p&gt;Searching: {query}&lt;/p&gt;
+            &lt;SearchBox {{c1::onSearch}}={{{c2::(e) =&gt; setQuery(e.target.value)}}} /&gt;
+        &lt;/div&gt;
+    );
+};
+
+const SearchBox = ({ {{c1::onSearch}} }: { {{c1::onSearch}}: (e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; void }) =&gt; (
+    &lt;input onChange={{{c1::onSearch}}} /&gt;
+);</code></pre>"	"Parent owns the state, passes a callback down. Child calls the callback to update parent's state. This is the core React pattern."	react data-flow typescript syntax
+"When rendering lists in React, every item MUST have a unique {{c1::key}} prop. Keys help React's reconciliation identify which items {{c2::changed, were added, or removed}}."	"Never use array index as key if the list can reorder. Use a stable ID (database ID, UUID). Bad keys = broken state and poor performance."	react lists keys reconciliation
+"NEVER mutate state directly in React. Always use the {{c1::setter function}} to create a {{c2::new reference}}."	"WRONG: state.items.push(newItem). RIGHT: setItems([...items, newItem]). React compares by reference — mutation means React doesn't know state changed."	react state mutation interview-prep

@@ -1,0 +1,104 @@
+#separator:tab
+#html:true
+#notetype:Cloze
+#deck:JavaScript TypeScript::Closures and Scope
+#tags:javascript typescript closures scope
+
+"<b>var</b> is {{c1::function}}-scoped. <b>let</b> and <b>const</b> are {{c2::block}}-scoped. In modern JS, use {{c3::const}} by default, {{c4::let}} when you need to reassign, and <b>never</b> use var."	"var is legacy. It ignores if/for blocks and leaks out. let/const respect curly braces {}."	javascript scope let-const-var
+"<pre><code class='language-typescript'>function scopeTest() {
+    if (true) {
+        var leaked = 'I escape the if block';
+        let trapped = 'I stay inside';
+    }
+    console.log(leaked);  // {{c1::""I escape the if block""}}
+    console.log(trapped); // {{c2::ReferenceError}}
+}</code></pre>"	"var ignores block boundaries (if, for, while). let/const are confined to the nearest {}."	typescript scope let-const-var syntax
+"{{c1::Lexical scope}} means variable access is determined by WHERE the code is WRITTEN, not where it is called. A child function can access its {{c2::parent's}} variables, but not vice versa."	"Also called 'static scoping.' The scope is set at author-time, not runtime."	javascript scope lexical-scope
+"The {{c1::scope chain}}: when JS looks up a variable, it searches the {{c2::current scope}} first, then walks UP through each {{c3::enclosing scope}} until it finds the variable or hits the global scope."	"If not found anywhere in the chain → ReferenceError."	javascript scope scope-chain
+"A {{c1::closure}} is a function bundled with {{c2::references to its surrounding lexical environment}}. Even after the outer function returns, the inner function can still access the outer's variables."	"Every function in JS creates a closure. It's not special syntax — it's how JS works."	javascript closures
+"CRITICAL: A closure holds a {{c1::reference}} to the variable, NOT a {{c2::snapshot of the value}}. If the outer variable changes, the closure sees the {{c3::new value}}."	"This is why the classic for-loop with var prints all 3s — the closure references the same i variable."	javascript closures
+"<pre><code class='language-typescript'>// Classic closure interview question
+// BROKEN: var shares one variable across all closures
+for (var i = 0; i &lt; 3; i++) {
+    setTimeout(() =&gt; console.log(i), 100);
+}
+// Prints: {{c1::3, 3, 3}}
+
+// FIXED: let creates a new binding per iteration
+for (let j = 0; j &lt; 3; j++) {
+    setTimeout(() =&gt; console.log(j), 100);
+}
+// Prints: {{c2::0, 1, 2}}</code></pre>"	"var: one shared i, equals 3 when timeouts fire. let: fresh j per iteration, each closure captures its own copy."	typescript closures interview-prep syntax
+"<pre><code class='language-typescript'>// Closure for Data Privacy — private counter
+function createCounter() {
+    let {{c1::count}} = 0; // private — cannot be accessed directly
+    return {
+        increment: () =&gt; ++{{c1::count}},
+        decrement: () =&gt; --{{c1::count}},
+        get: () =&gt; {{c1::count}},
+    };
+}
+
+const counter = createCounter();
+counter.increment();
+console.log(counter.get());   // {{c2::1}}
+console.log(counter.{{c1::count}}); // {{c3::undefined}}</code></pre>"	"count is enclosed in the closure. External code can only interact through the returned methods. This is the Module Pattern."	typescript closures data-privacy syntax
+"<pre><code class='language-python'># Closure for Data Privacy — private counter (Python)
+def create_counter():
+    count = [0]  # use list for mutability in closure
+    def increment():
+        count[0] += 1
+    def get():
+        return {{c1::count[0]}}
+    return {'increment': increment, 'get': get}
+
+counter = create_counter()
+counter['increment']()
+print(counter['get']())  # {{c2::1}}</code></pre>"	"Python closures can READ outer variables but need nonlocal or a mutable container (list/dict) to MODIFY them."	python closures data-privacy syntax
+"{{c1::Hoisting}}: JS moves declarations to the top of their scope during compilation.<br><br>• <b>var</b>: hoisted and initialized to {{c2::undefined}}<br>• <b>let/const</b>: hoisted but {{c3::NOT initialized}} (TDZ)<br>• <b>function declarations</b>: {{c4::entire body}} is hoisted"	"This is why you can call a function declaration before it appears in code, but not a function expression."	javascript hoisting scope
+"The {{c1::Temporal Dead Zone (TDZ)}}: the period from the start of a block until a let/const variable is declared. Accessing the variable during the TDZ throws a {{c2::ReferenceError}}."	"var gives you undefined silently (dangerous). let/const crash loudly (safer). TDZ exists to catch bugs."	javascript hoisting tdz scope
+"<pre><code class='language-typescript'>console.log(a); // {{c1::undefined}} (var is hoisted)
+var a = 10;
+
+console.log(b); // {{c2::ReferenceError}} (TDZ)
+let b = 20;</code></pre>"	"var silently gives undefined. let crashes. This is why let/const are safer — bugs surface immediately."	typescript hoisting tdz syntax
+"The 5 rules of <b>this</b> in JavaScript (in priority order):<br>1. {{c1::new}} binding — this = new instance<br>2. {{c2::Explicit}} binding — call/apply/bind<br>3. {{c3::Implicit}} binding — obj.method()<br>4. {{c4::Default}} binding — global (or undefined in strict mode)<br>5. {{c5::Arrow}} functions — inherits from parent scope"	"When confused, check in this priority order. Higher rules override lower ones."	javascript this-binding
+"{{c1::Arrow functions}} do NOT have their own <b>this</b>. They inherit this from their {{c2::enclosing lexical scope}} at the time of {{c3::definition}}."	"This is why arrow functions are perfect for callbacks — they keep the parent's 'this' without needing .bind()."	javascript this-binding arrow-functions
+"<b>.call()</b> invokes immediately with args listed: fn.call(obj, a, b)<br><b>.apply()</b> invokes immediately with args as {{c1::array}}: fn.apply(obj, [a, b])<br><b>.bind()</b> returns a {{c2::new function}} with this permanently set"	"Memory trick: Apply takes an Array (both start with A). Bind doesn't run — it returns a Bound function."	javascript this-binding call-apply-bind
+"<pre><code class='language-typescript'>// Factory Function using closures
+function multiplier(factor: number) {
+    // 'factor' is {{c1::captured in the closure}}
+    return function(n: number): number {
+        return n * {{c2::factor}};
+    };
+}
+
+const double = multiplier(2);
+const triple = multiplier(3);
+console.log(double(5));  // {{c3::10}}
+console.log(triple(5));  // {{c4::15}}</code></pre>"	"Each call to multiplier() creates a new closure with its own 'factor'. double and triple are independent."	typescript closures factory syntax
+"<pre><code class='language-python'># Factory Function using closures (Python)
+def multiplier(factor: int):
+    def multiply(n: int) -&gt; int:
+        return n * {{c1::factor}}
+    return multiply
+
+double = multiplier(2)
+triple = multiplier(3)
+print(double(5))   # {{c2::10}}
+print(triple(5))   # {{c3::15}}</code></pre>"	"Same pattern as JS. Python closures capture the enclosing variable by reference."	python closures factory syntax
+"<pre><code class='language-typescript'>// Partial Application (Currying)
+function add(a: number) {
+    return function(b: number): number {
+        return {{c1::a + b}};
+    };
+}
+
+const addTen = add({{c2::10}});
+console.log(addTen(5));   // 15
+console.log(addTen(20));  // 30
+
+// Arrow syntax equivalent:
+const addArrow = (a: number) =&gt; (b: number) =&gt; {{c1::a + b}};</code></pre>"	"Currying: transform f(a, b) into f(a)(b). Each call returns a new closure with one argument fixed."	typescript closures currying syntax
+"Why use <b>const</b> by default in modern JavaScript?"	"<b>Signals intent.</b> It tells other developers (and your future self) that this binding won't change. Reduces bugs from accidental reassignment. Note: const objects/arrays CAN still be mutated — only the binding is locked."	javascript let-const-var interview-prep
+"What is the difference between a <b>function declaration</b> and a <b>function expression</b> regarding hoisting?"	"<b>Declarations</b> are fully hoisted (you can call them before they appear in code). <b>Expressions</b> (const fn = function() {}) only hoist the variable, not the function body — calling them early throws a TypeError."	javascript hoisting interview-prep

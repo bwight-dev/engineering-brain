@@ -1,0 +1,9 @@
+#separator:tab
+#html:true
+#notetype:Cloze
+#deck:TOPIC_NAME::SUBTOPIC_NAME
+#tags:topic-tag interview-prep
+
+"What is a <b>KEY TERM</b>?"	"<b>Concise definition.</b> One or two sentences explaining the concept clearly."	topic-tag interview-prep
+"Why is <b>APPROACH A</b> preferred over <b>APPROACH B</b> for [SCENARIO]?"	"<b>Reason.</b> Explain the trade-off with specific numbers or complexity if relevant."	topic-tag interview-prep
+"When would you use <b>TECHNIQUE</b> in a real system?"	"<b>Use case.</b> Describe a concrete scenario and why this technique is the right choice."	topic-tag interview-prep

@@ -1,0 +1,27 @@
+#separator:tab
+#html:true
+#notetype:Cloze
+#deck:TOPIC_NAME::SUBTOPIC_NAME
+#tags:topic-tag syntax
+
+"<pre><code class='language-python'># PATTERN_NAME (Python)
+# Description of what this code does
+
+def function_name(param: type) -&gt; return_type:
+    {{c1::key_variable}} = initial_value
+    for item in collection:
+        if {{c2::condition}}:
+            {{c1::key_variable}} = updated_value
+    return {{c3::result}}</code></pre>"	"Time: O(?), Space: O(?). Brief explanation."	python topic-tag syntax
+"<pre><code class='language-typescript'>// PATTERN_NAME (TypeScript)
+// Description of what this code does
+
+function functionName(param: Type): ReturnType {
+    let {{c1::keyVariable}}: Type = initialValue;
+    for (const item of collection) {
+        if ({{c2::condition}}) {
+            {{c1::keyVariable}} = updatedValue;
+        }
+    }
+    return {{c3::result}};
+}</code></pre>"	"Time: O(?), Space: O(?). Brief explanation."	typescript topic-tag syntax
